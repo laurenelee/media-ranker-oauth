@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
         # Create a new record in the DB
         user = User.from_auth_hash(params[:provider], auth_hash)
         save_and_flash(user)
-
       else
         flash[:status] = :success
         flash[:message] = "Successfully logged in as returning user #{user.name}"
@@ -21,7 +20,10 @@ class SessionsController < ApplicationController
     else
       flash[:status] = :failure
       flash[:message] = "Could not create user from OAuth data"
+
+
     end
+
 
     redirect_to root_path
   end
