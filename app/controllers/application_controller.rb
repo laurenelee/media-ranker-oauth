@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  # before_action :require_login
+  before_action :require_login
 
   def render_404
     # DPR: supposedly this will actually render a 404 page in production

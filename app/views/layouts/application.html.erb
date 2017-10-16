@@ -24,8 +24,8 @@
       <%= link_to "View all users", users_path, class: "button" %>
       <div class="float-right">
         <% if session[:user_id] %>
-        Logged in as
-          <%= User.find(session[:user_id]).name %>
+
+
           <%= link_to "Log Out", logout_path, class: "button float-right" %>
         <% else %>
           <%= link_to "Log in", '/auth/github', class: "button float-right" %>
