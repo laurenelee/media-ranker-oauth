@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login, only: [:login]
+  # skip_before_action :require_login, only: [:login]
 
   def login
     auth_hash = request.env['omniauth.auth']
@@ -12,11 +12,11 @@ class SessionsController < ApplicationController
         save_and_flash(user)
 
       else
-        session[:user_id] = user.id
         flash[:status] = :success
         flash[:message] = "Successfully logged in as returning user #{user.name}"
 
       end
+      session[:user_id] = user.id
 
     else
       flash[:status] = :failure
